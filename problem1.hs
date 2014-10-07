@@ -9,4 +9,3 @@ problemOne :: (Integral a) => a -> a
 problemOne n = sum . filter (\x -> x `divisibleBy` 3 || x `divisibleBy` 5) $ [1..n-1]
 
 main = print $ problemOne 1000
-

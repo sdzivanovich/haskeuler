@@ -8,8 +8,9 @@ fibonacci :: (Integral a) => a -> a
 fibonacci n 
     | n < 0     = error "no negatives"
     | otherwise = iterfib n 0 1 
-        where   iterfib 0 _  p  = p
-                iterfib n pp p  = iterfib (n - 1) p (pp + p)
+    where   
+        iterfib 0 _  p  = p
+        iterfib n pp p  = iterfib (n - 1) p (pp + p)
 
 problemTwo :: (Integral a) => a -> a
 problemTwo n = sum . filter even . takeWhile ( < n) . map fibonacci $ [0..]

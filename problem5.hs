@@ -1,6 +1,6 @@
 -- project euler, problem 5
 -- https://projecteuler.net/problem=5
--- What is the smallest positive number that is evenly divisible by all of the 
+-- What is the smallest positive number that is evenly divisible by all of the
 -- numbers from 1 to 20?
 
 divisibleBy :: (Integral a) => a -> a -> Bool
@@ -12,6 +12,9 @@ x `divisibleBy` y = x `mod` y == 0
 -- then the next smallest possible number is lcm 20 19. etc. 
 
 smallestDivisibleByAll :: (Integral a) => [a] -> a
-smallestDivisibleByAll = foldr1 (\x acc-> if acc `divisibleBy` x then acc else lcm acc x)
+smallestDivisibleByAll = foldr1 (\x acc -> 
+                            if acc `divisibleBy` x 
+                            then acc 
+                            else lcm acc x)
 
 main = print . smallestDivisibleByAll $ [1..20]

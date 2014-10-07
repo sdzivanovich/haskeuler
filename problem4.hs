@@ -7,8 +7,9 @@ isPalindrome x =    let disp =  show x
                     in  disp == reverse disp
 
 problemFour :: Integer
-problemFour =   let threeDigitNums = [100..999]                
-                    mapMult x = map (*x) threeDigitNums  
-                in maximum . filter isPalindrome $ concatMap mapMult threeDigitNums  
+problemFour =   let threeDigitNums  = [100..999]                
+                    mapMult x       = map (*x) threeDigitNums  
+                in  maximum . filter isPalindrome 
+                    $ concatMap mapMult threeDigitNums  
 
 main = print problemFour

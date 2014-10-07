@@ -9,14 +9,14 @@ sumTriplet (x, y, z) = x + y + z
 productTriplet :: (Num a) => (a, a, a) -> a
 productTriplet (x, y, z) = x * y * z
 
-isPythagorean :: (Eq a, Num a) => (a, a, a) -> Bool
-isPythagorean (a, b, c) = a^2 + b^2 == c^2
+pythagorean :: (Eq a, Num a) => (a, a, a) -> Bool
+pythagorean (a, b, c) = a^2 + b^2 == c^2
 
 problemNine :: (Integral a) => a -> a
 problemNine n =     let triplets = [(a, b, c) | c <- [1..n], b <- [1..c]
                                                 , a <- [1..b]]
                     in productTriplet . head 
-                        . filter (\x -> sumTriplet x == n && isPythagorean x) 
+                        . filter (\x -> sumTriplet x == n && pythagorean x) 
                         $ triplets
 
 main = print $ problemNine 1000
